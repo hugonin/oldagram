@@ -2,20 +2,23 @@ import posts from "./data.js";
 
 const divEl = document.getElementById("posts");
 
-const output = posts.map((p) => {
-  return `
+const output = posts
+  .map((p) => {
+    return `
   <section ${p.id}>
     <div class="container" >
         <div class="user-info">
             <div>
-                <img src=${p.avatar} alt="user avatar">
+                <img src=${p.avatar} alt=${p.altAvatar}>
             </div>
             <div>
                 <p><span class="bold-text">${p.name}</span></p>
                 <p>${p.location}</p>
             </div>
         </div>
-        <img class="container img" src=${p.post} alt="">
+        <img id="img" class="container img" src=${p.post} alt=${
+      p.altPost
+    } onclick=${increaseLikes()} >
         <div class="body-content">
             <div class="icons">
                 <i class="fa-regular fa-heart fa-xl"></i>
@@ -28,7 +31,12 @@ const output = posts.map((p) => {
     </div> 
   </section>
    
-    `
-}).join('');
+    `;
+  })
+  .join("");
+
+function increaseLikes() {
+  console.log("like this");
+}
 
 divEl.innerHTML = output;

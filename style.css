@@ -46,6 +46,7 @@ p {
 
 .container img {
   object-fit: cover;
+  cursor: pointer;
 }
 
 .user-info {
